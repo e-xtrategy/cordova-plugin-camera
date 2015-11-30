@@ -71,6 +71,8 @@ static NSString* toBase64(NSData* data) {
     pictureOptions.popoverSupported = NO;
     pictureOptions.usesGeolocation = NO;
     
+    pictureOptions.allowPopover = [[command argumentAtIndex:12 withDefault:@(YES)] boolValue];
+    
     return pictureOptions;
 }
 
@@ -182,7 +184,7 @@ static NSString* toBase64(NSData* data) {
                 [[weakSelf pickerController] setPickerPopoverController:nil];
             }
 
-            if ([weakSelf popoverSupported] && (pictureOptions.sourceType != UIImagePickerControllerSourceTypeCamera)) {
+            if (pictureOptions.allowPopover && [weakSelf popoverSupported] && (pictureOptions.sourceType != UIImagePickerControllerSourceTypeCamera)) {
                 if (cameraPicker.pickerPopoverController == nil) {
                     cameraPicker.pickerPopoverController = [[NSClassFromString(@"UIPopoverController") alloc] initWithContentViewController:cameraPicker];
                 }
