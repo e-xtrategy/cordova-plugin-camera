@@ -175,8 +175,9 @@
              <string>$PHOTOLIBRARY_USAGE_DESCRIPTION</string>
          </config-file>
 
+         <preference name="LOCATION_WHEN_IN_USAGE_DESCRIPTION" default=" " />
          <config-file target="*-Info.plist" parent="NSLocationWhenInUseUsageDescription">
-             <string></string>
+             <string>$LOCATION_WHEN_IN_USAGE_DESCRIPTION</string>
          </config-file>
 
      </platform>
